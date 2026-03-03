@@ -1,75 +1,91 @@
-*{
-    box-sizing: border-box;
-    margin:0;
-    padding: 0;
-}
-:root{
-   --primary-color:#2c3e50;
-   --secondary-color:#3498db;
-   --background-color: #f4f6f9;
-   --text-color: #333;
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --nav-background: #333333;
+    --nav-text: #ffffff;
+    --footer-background: #f0f0f0;
 }
 
-body{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: var(--primary-color);
+body {
+    background-color: var(--background-color);
     color: var(--text-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
 }
-header,
-nav,
-main,
-aside,
-footer{
-    max-width: 80%;
-    margin:0 auto;
+
+header {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: var(--nav-background);
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 10px 15px;
+}
+
+nav ul li a,
+nav ul li button {
+    color: var(--nav-text);
+    text-decoration: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+main {
     padding: 20px;
 }
-header{
-    background-color: var(--primary-color);
-    color:blue;
-    text-align: center;
+
+section, aside {
+    margin-bottom: 20px;
 }
-nav{
-    text-align: center;
-    background-color: var(--secondary-color);
+
+footer {
+    background-color: var(--footer-background);
+    padding: 20px;
 }
-nav ul{
-    list-style: none;
+
+.form-group {
+    margin-bottom: 10px;
 }
-nav ul li{
+
+input, textarea {
+    width: 100%;
+    padding: 5px;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    --background-color: #1a1a2e;
+    --text-color: #e0e0e0;
+    --nav-background: #0f1626;
+    --nav-text: #e0e0e0;
+    --footer-background: #111122;
+}
+
+/* Toggle vizibilitate secțiuni */
+.hidden {
+    display: none;
+}
+
+h2::before {
+    content: "▼ ";
     display: inline-block;
-    margin: 10px;
+    width: 1em;
 }
-nav ul li a{
-    text-decoration:none;
-    color:white;
-    background-color: var(--primary-color);
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-section{
-    margin: 30px 0;
-}
-nav ul li a:hover{
-    background-color: black;
-}
-#about img{
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    display: block;
-    margin:20px auto;
-}
-aside{
-    background-color: blueviolet;
-    border-left: 5px solid var(--secondary-color);
-}
-footer{
-    text-align: center;
-    background-color: var(--primary-color);
-}
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+
+h2.collapsed::before {
+    content: "▶ ";
 }
