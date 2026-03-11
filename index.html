@@ -1,72 +1,87 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laboratorul 1</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laboratorul 2 + Laboratorul 3</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
- <script>
-  alert("Hello World!"); 
-</script> 
-<script src=”js/contact_form.js”></script> 
-    <header>
-    <p>Vartolomei Richard</p>
-    <p>Facultatea de Inginerie electrica si Stiinta Calculatoarelor</p>
+
+<header>
+    <h2>Vartolomei Richard</h2>
+    <p>Bine ai venit!</p>
 </header>
-    <nav>
-       <ul>
+
+<nav>
+    <ul>
         <li><a href="#about">Despre</a></li>
-        <li><a href="#education">Educatie</a></li>
-       </ul>
-    </nav>
-    <main>
-        <section id="about">
-            <h2>Despre mine</h2>
-            <img src="images/imagineamea.jpg" loading="lazy" width="300" alt="Poza de Profil">
-            <p>
-            Sunt student pasionat de tehnologie si de dezvoltare personala
-           </p>
-        </section>
-      <section id="education">
-       <h4>Educatie</h4>
-          <ol>
-          <li>clasele 1-4</li>    
-          <li>clasele 5-8</li>    
-          <li>clasele 9-12</li>    
-          <li>facultatea IESC</li>    
-        </ol>    
-      
+        <li><a href="#education">Educație</a></li>
+        <li><button id="dark-mode-toggle">🌙 Dark Mode</button></li>
+    </ul>
+</nav>
+
+<main>
+    <section id="about">
+        <h2>Despre mine</h2>
+        <div class="section-content">
+            <img src="images/imagineamea.jpg" width="400" alt="Poza de Profil">
+            <p>Sunt student pasionat de tehnologie și de dezvoltare personală.</p>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Educație</h2>
+        <div class="section-content">
+            <ol>
+                <li>Clasele 1-4</li>
+                <li>Clasele 5-8</li>
+                <li>Clasele 9-12</li>
+                <li>Facultatea IESC</li>
+            </ol>
+        </div>
+    </section>
+<section id="projects">
+    <h2>Proiecte</h2>
+
+    <div id="projects-list"></div>
+
+    <p id="projects-summary"></p>
 </section>
-  <aside>
-            <h3>Hobby-urile mele</h3>
-           <ul>
-           <li>Muzica psaltica</li>
-           <li>Inotul</li>
-           <li>Sala de fitness</li>
-           </ul>
-            
-        </aside>
-        <footer>
-            <p>&copy;2026 Nume Prenume</p>
-            <p> Contact:email@example.com</p>
-            <form>
-                <div class="form-group">
-                 <label for="name">Nume</label>
-                 <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                <label for="email">Email</label>
-                 <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Mesaj</label>
-                    <textarea id=“message” name=“message” rows=“4” required></textarea>
-                </div>
-<button type="submit" onclick="submitForm()">Trimite mesajul</button>
-        </form>
-         </footer>
-     </main>
+    <aside>
+        <h3>Hob-urile mele</h3>
+        <ul>
+            <li>Muzica psaltică</li>
+            <li>Înotul</li>
+            <li>Sala de fitness</li>
+        </ul>
+    </aside>
+</main>
+
+<footer>
+    <p>&copy; 2026 Vartolomei Richard</p>
+    <p>Contact: email@example.com</p>
+
+    <form id="contact-form">
+        <div class="form-group">
+            <label for="name">Nume</label>
+            <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Mesaj</label>
+            <textarea id="message" rows="4" required></textarea>
+        </div>
+        <button type="submit">Trimite mesajul</button>
+        <p id="form-feedback"></p>
+    </form>
+</footer>
+<button id="backToTop" class="hidden">⬆ Back to top</button>
+<script src="js/contact_form.js"></script>
+<script src="js/array.js"></script>
+
 </body>
 </html>

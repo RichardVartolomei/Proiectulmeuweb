@@ -1,0 +1,6 @@
+[
+  {"name":"Calculator JS","tech":"JavaScript","done":true},
+  {"name":"Portfolio Website","tech":"HTML/CSS","done":true},
+  {"name":"Mini Wolfram","tech":"Python","done":false},
+  {"name":"ToDo App","tech":"React","done":true}
+]
