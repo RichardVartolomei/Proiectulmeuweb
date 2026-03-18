@@ -14,12 +14,17 @@ function App() {
     <div>
       <h1>Dashboard</h1>
 
-      {/* EX 5 - Contor */}
+      {/* Contor */}
       <h2>Contor</h2>
       <p>Ai apasat de {count} ori</p>
-      <button onClick={() => setCount(count + 1)}>Click</button>
 
-      {/* EX 4 - Card-uri */}
+      {/* Butoane */}
+      <button onClick={() => setCount(count + 1)}>+1</button>
+      <button onClick={() => setCount(count - 1)}>-1</button>
+      <button onClick={() => setCount(0)}>Reset</button>
+
+      {/* Card-uri */}
+      <h2>Proiecte</h2>
       {projects.map((item, index) => (
         <Card
           key={index}
