@@ -1,8 +1,8 @@
-function Card() {
+function Card(props) {
   return (
-    <div>
-      <h3>Banca Transilvania</h3>
-      <p>Card de credit</p>
+    <div style={{ border: "1px solid black", padding: "10px", margin: "10px" }}>
+      <h3>{props.title}</h3>
+      <p>{props.description}</p>
     </div>
   );
 }
