@@ -1,9 +1,10 @@
-function Card(props) {
+function Card() {
   return (
     <div>
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
+      <h3>Banca Transilvania</h3>
+      <p>Card de credit</p>
     </div>
   );
 }
+
 export default Card;
