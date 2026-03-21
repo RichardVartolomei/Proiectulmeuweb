@@ -24,14 +24,14 @@ function TodoList() {
             />
             <button onClick={handleAdd}>Adaugă</button>
 
-            <ul>
+            <ol>
                 {todos.map((todo, index) => (
                     <li key={index}>
                     {todo}
-                    <button onClick={()=>handleDelete(index)}>Sterge</button>
+                    <button onClick={()=>handleDelete(index)}> Sterge</button>
                     </li>
                 ))}
-            </ul>
+            </ol>
         </div>
     );
 }

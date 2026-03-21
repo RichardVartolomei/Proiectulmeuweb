@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Card from './Card';
 import QuickNote from './QuickNote';
 import TodoList from './TodoList';  // <-- importă TodoList
+import ContactForm from './ContactForm';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -37,10 +38,12 @@ function App() {
       ))}   
 
       {/* QuickNote */}
-      <QuickNote />
+      <QuickNote/>
 
       {/* TodoList */}
-      <TodoList />  {/* <-- aici adaugă lista de task-uri */}
+      <TodoList/>  {/* <-- aici adaugă lista de task-uri */}
+
+      <ContactForm/>
     </div>
   );
 }
