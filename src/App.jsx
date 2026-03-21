@@ -3,6 +3,7 @@ import Card from './Card';
 import QuickNote from './QuickNote';
 import TodoList from './TodoList';  // <-- importă TodoList
 import ContactForm from './ContactForm';
+import Clock from './Clock';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -44,6 +45,8 @@ function App() {
       <TodoList/>  {/* <-- aici adaugă lista de task-uri */}
 
       <ContactForm/>
+
+      <Clock/>
     </div>
   );
 }
