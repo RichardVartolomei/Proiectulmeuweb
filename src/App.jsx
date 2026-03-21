@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Card from './Card';
 import QuickNote from './QuickNote';
+import TodoList from './TodoList';  // <-- importă TodoList
+
 function App() {
   const [count, setCount] = useState(0);
 
@@ -23,6 +25,7 @@ function App() {
       <button onClick={() => setCount(count + 1)}>+1</button>
       <button onClick={() => setCount(count - 1)}>-1</button>
       <button onClick={() => setCount(0)}>Reset</button>
+
       {/* Card-uri */}
       <h2>Proiecte</h2>
       {projects.map((item, index) => (
@@ -32,9 +35,13 @@ function App() {
           description={item.description}
         />
       ))}   
-      <QuickNote/>
+
+      {/* QuickNote */}
+      <QuickNote />
+
+      {/* TodoList */}
+      <TodoList />  {/* <-- aici adaugă lista de task-uri */}
     </div>
- 
   );
 }
 
