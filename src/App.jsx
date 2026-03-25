@@ -4,6 +4,7 @@ import QuickNote from './QuickNote';
 import TodoList from './TodoList';  // <-- importă TodoList
 import ContactForm from './ContactForm';
 import Clock from './Clock';
+import ProjectList from './ProjectList';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -14,9 +15,10 @@ function App() {
     { title: "Proiect 3", description: "Dashboard React" },
     { title: "Proiect 4", description: "Masa de pranz "},
   ];
-
+   
   return (
     <div>
+     <Clock/>
       <h1>Dashboard</h1>
 
       {/* Contor */}
@@ -37,7 +39,7 @@ function App() {
           description={item.description}
         />
       ))}   
-
+         
       {/* QuickNote */}
       <QuickNote/>
 
@@ -45,8 +47,8 @@ function App() {
       <TodoList/>  {/* <-- aici adaugă lista de task-uri */}
 
       <ContactForm/>
-
-      <Clock/>
+      <p>Laboratorul 6</p>
+      <ProjectList/>
     </div>
   );
 }
