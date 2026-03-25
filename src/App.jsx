@@ -47,7 +47,7 @@ function App() {
       <TodoList/>  {/* <-- aici adaugă lista de task-uri */}
 
       <ContactForm/>
-      <p>Laboratorul 6</p>
+
       <ProjectList/>
     </div>
   );
