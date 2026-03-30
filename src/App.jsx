@@ -5,10 +5,11 @@ import TodoList from './TodoList';  // <-- importă TodoList
 import ContactForm from './ContactForm';
 import Clock from './Clock';
 import ProjectList from './ProjectList';
+import UsersList from './UsersList';
 
 function App() {
   const [count, setCount] = useState(0);
-
+       
   const projects = [
     { title: "Proiect 1", description: "Pagina personala" },
     { title: "Proiect 2", description: "Calculator buget" },
@@ -40,15 +41,15 @@ function App() {
         />
       ))}   
          
-      {/* QuickNote */}
       <QuickNote/>
 
-      {/* TodoList */}
-      <TodoList/>  {/* <-- aici adaugă lista de task-uri */}
+      <TodoList/>
 
       <ContactForm/>
 
       <ProjectList/>
+
+      <UsersList/>
     </div>
   );
 }
