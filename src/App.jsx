@@ -5,6 +5,7 @@ import Contact from './pages/Contact';
 import Navbar from './Navbar';
 import './App.css';
 import NotFound from './pages/NotFound';
+import About from './pages/About';
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +15,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} /> 
+        <Route path="/about" element={<About />} /> 
       </Routes>
     </BrowserRouter>
   );
