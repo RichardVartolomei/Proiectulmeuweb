@@ -200,3 +200,7 @@ nav a:hover {
 nav a.active {
   background: #FF7733;
 }
+div {
+  text-align: center;
+  margin-top: 50px;
+}
