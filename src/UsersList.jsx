@@ -30,8 +30,7 @@ function UsersList() {
     return (
         <div>
             <h3>Utilizatori (API)</h3>
-
-            <input
+             <input
                 type="text"
                 placeholder="Cauta utilizator..."
                 value={search}

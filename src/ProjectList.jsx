@@ -21,7 +21,7 @@ function ProjectList() {
                 setLoading(false);
             });
     }, []);
-
+        
     if (loading) {
         return <p>Se incarca...</p>;
     }
@@ -44,7 +44,6 @@ function ProjectList() {
                 }}
             />
 
-            {/* LISTA FILTRATA */}
             {projects
                 .filter(function (p) {
                     return p.title.toLowerCase().includes(search.toLowerCase());
