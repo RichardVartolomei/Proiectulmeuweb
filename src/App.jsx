@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 import './App.css';
 import NotFound from './pages/NotFound';
 import About from './pages/About';
+import Footer from './Footer';
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +18,7 @@ function App() {
         <Route path="*" element={<NotFound />} /> 
         <Route path="/about" element={<About />} /> 
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
