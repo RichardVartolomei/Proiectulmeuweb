@@ -62,6 +62,24 @@ app.delete('/api/projects/:id',function(req, res){
      
      }
 });
+
+app.put('/api/projects/:id',function(req, res){
+     const project = projects.find(p => p.id === id);
+     const id = parseInt(req.params.id);
+   if(!project){
+    return res.status(404).json({error:"Not found"});
+   }
+   if(req.body.title!=undefined){
+    project.title=req.body.title;
+   }
+   if(req.body.tech!=undefined){
+    project.tech=req.body.tech;
+   }
+   if(req.body.done!=undefined){
+    project.done=req.body.done;
+   }
+   res.json(projects);
+});
 app.listen(PORT, function() {
     console.log('Server pornit pe http://localhost:' + PORT);
 });
