@@ -12,8 +12,8 @@ const projects = [
   { id: 3, title: "Dashboard React", tech: "React", done: false },
   { id: 4, title: "API Meteo", tech: "React,API", done: false },
 ];
+app.use(express.json());
 
-// toate proiectele
 app.get('/api/projects', function(req, res) {
     res.json(projects);
 });
@@ -41,6 +41,16 @@ app.get('/api/stats', function(req, res) {
     });
 });
 
+app.post('/api/projects',function(req, res){
+   const newProject={
+    id:projects.length + 1,
+    title:req.body.title,
+    tech:req.body.tech,
+    done:req.body.done || false,
+   };
+   projects.push(newProject);
+   res.status(201).json(newProject);
+});
 app.listen(PORT, function() {
     console.log('Server pornit pe http://localhost:' + PORT);
 });
