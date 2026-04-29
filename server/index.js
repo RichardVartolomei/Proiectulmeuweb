@@ -26,6 +26,19 @@ app.get('/api/projects',async function(req,res){
     }
 });
 
+app.post('/api/projects',async function(req,res){
+   try{
+    const newProject = new Project({
+       title:req.body.title,
+       tech:req.body.tech,
+       done:req.body.done || false,  
+       });
+       const saved = await newProject.save();
+       res.status(201).json(saved);
+   }catch(err){
+    res.status(400).json({error:err.message});
+   }
+});
 // app.get('/api/projects/:id', function(req, res) {
 //     const id = parseInt(req.params.id);
 //     const project = projects.find(p => p.id === id);
