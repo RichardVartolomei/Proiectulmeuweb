@@ -39,6 +39,29 @@ app.post('/api/projects',async function(req,res){
     res.status(400).json({error:err.message});
    }
 });
+
+app.get('/api/projects/:id', async function(req,res){
+   try{
+    const project = await Project.findById(req.params.id);
+     if(!project){
+        return res.status(404).json({error:'Nu se gaseste proiectul'});
+    }
+    res.json(project);
+   }catch(err){
+     res.status(500).json({error:'Eroare' + error.message});
+   }
+});
+app.delete('/api/projects/:id',async function(req,res){
+   try{
+    const project = await Project.findByIdAndDelete(req.params.id);
+    if(!project){
+        return res.status(404).json({error:'Nu se gaseste acest proiect!!'});
+    }
+    res.json({message:'Deleted!!!'});
+   }catch(err){
+    res.status(500).json({error:'Eroare' + error.message});
+   }
+});
 // app.get('/api/projects/:id', function(req, res) {
 //     const id = parseInt(req.params.id);
 //     const project = projects.find(p => p.id === id);
