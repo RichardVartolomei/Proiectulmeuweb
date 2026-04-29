@@ -1,5 +1,13 @@
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/dashboard')
+  .then(function(){
+    console.log('Conectat la MongoDB!');
+  })
+  .catch(function(err){
+    console.log('Eroare conectare MongoDB:',err);   
+  });
 const PORT = 3000;
 
 app.get('/', function(req, res) {
@@ -53,14 +61,14 @@ app.post('/api/projects',function(req, res){
 });
 
 app.delete('/api/projects/:id',function(req, res){
-   const id = parseInt(req.params.id);
-   const index = projects.findIndex(p=>p.id === id)
-   if(index===-1){
-   { return res.status(404).json({error:'Not Found'});}
-   return projects.splice(index,1);
-          res.json({message:'Deleted'});
-     
-     }
+    const id = parseInt(req.params.id);
+    const index = projects.findIndex(p=>p.id === id)
+    if(index===-1)
+        res.status(404).json({error:'Not Found'});
+    else {
+        projects.splice(index,1);
+        res.json({message:'Deleted'});
+    }
 });
 
 app.put('/api/projects/:id',function(req, res){
