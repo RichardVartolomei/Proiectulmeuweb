@@ -43,6 +43,18 @@ function ProjectList() {
         console.err('Eroare:',err);
     }
 }
+async function handleDelete(id) {
+    try {
+        await fetch('http://localhost:3000/api/projects/' + id, {
+            method: 'DELETE'
+        });
+
+        setProjects(projects.filter(p => p._id !== id));
+
+    } catch (err) {
+        console.error('Eroare la stergere:', err);
+    }
+}
         
     if (loading) {
         return <p>Se incarca...</p>;
