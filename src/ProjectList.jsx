@@ -6,17 +6,22 @@ function ProjectList() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [search, setSearch] = useState('');
+    const [title, setTitle] = useState('');
+    const [tech, setTech] = useState('');
 
     useEffect(function () {
-        fetch('/data/projects.json') 
+        fetch('http://localhost:3000/api/projects') 
             .then(function (response) {
+                if (!response.ok) {
+                    throw new Error('Eroare server');
+                }
                 return response.json();
             })
             .then(function (data) {
-                setProjects(data.projects);
+                setProjects(data);
                 setLoading(false);
             })
-            .catch(function () {
+            .catch(function (err) {
                 setError('Eroare la incarcarea datelor');
                 setLoading(false);
             });
@@ -32,9 +37,8 @@ function ProjectList() {
 
     return (
         <div>
-            <h3>Proiecte (din JSON)</h3>
+            <h3>Proiecte (din API)</h3>
 
-            {/* SEARCH */}
             <input 
                 type="text" 
                 placeholder="Cauta proiect..." 
@@ -51,7 +55,7 @@ function ProjectList() {
                 .map(function (project) {
                     return (
                         <Card
-                            key={project.id}
+                            key={project._id}   
                             title={project.title}
                             description={project.tech}
                         />
