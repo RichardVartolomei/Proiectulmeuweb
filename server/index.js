@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const cors = require('cors');
 mongoose.connect('mongodb://localhost:27017/dashboard')
   .then(function(){
     console.log('Conectat la MongoDB!');
@@ -9,6 +10,8 @@ mongoose.connect('mongodb://localhost:27017/dashboard')
     console.log('Eroare conectare MongoDB:',err);   
   });
 const PORT = 3000;
+
+app.use(cors());
 
 app.get('/', function(req, res) {
     res.json({ message: 'Serverul functioneaza!' });
@@ -51,6 +54,7 @@ app.get('/api/projects/:id', async function(req,res){
      res.status(500).json({error:'Eroare' + error.message});
    }
 });
+
 app.delete('/api/projects/:id',async function(req,res){
    try{
     const project = await Project.findByIdAndDelete(req.params.id);
