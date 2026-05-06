@@ -131,3 +131,19 @@ app.put('/api/projects/:id',function(req, res){
 app.listen(PORT, function() {
     console.log('Server pornit pe http://localhost:' + PORT);
 });
+async function handleSubmit(){
+    try{
+        const response = await fetch('http://localhost:3000/api/projects',{
+            method:'POST',
+            headers: { 'Content-Type': 'application/json' }, 
+            body: JSON.stringify({title: title, tech: tech}),
+        });
+        const newProject = await response.json();
+        setProjects([...projects, newProject]);
+        setTitle('');
+        setTech('');
+
+    } catch(err){
+        console.err('Eroare:',err);
+    }
+}

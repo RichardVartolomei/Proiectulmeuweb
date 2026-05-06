@@ -26,6 +26,23 @@ function ProjectList() {
                 setLoading(false);
             });
     }, []);
+
+    async function handleSubmit(){
+    try{
+        const response = await fetch('http://localhost:3000/api/projects',{
+            method:'POST',
+            headers: { 'Content-Type': 'application/json' }, 
+            body: JSON.stringify({title: title, tech: tech}),
+        });
+        const newProject = await response.json();
+        setProjects([...projects, newProject]);
+        setTitle('');
+        setTech('');
+
+    } catch(err){
+        console.err('Eroare:',err);
+    }
+}
         
     if (loading) {
         return <p>Se incarca...</p>;
