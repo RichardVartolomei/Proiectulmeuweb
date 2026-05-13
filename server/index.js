@@ -26,7 +26,7 @@ app.get('/api/projects',async function(req,res){
         const projects = await  Project.find();
         res.json(projects);
     }catch(err){
-        res.status(500).json({error: 'Eroare' + err});
+        res.status(500).json({error: 'Eroare' + err.message});
     }
 });
 
@@ -68,7 +68,9 @@ app.delete('/api/projects/:id',async function(req,res){
    }
 });
 
-app.put('/api/projects/:id', async function(req,res) {
+
+
+app.put('/api/projects/:id', async function(req, res) {
 	try {
 		const updated = await Project.findByIdAndUpdate(
             req.params.id,
