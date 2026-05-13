@@ -54,6 +54,36 @@ function ProjectList() {
             console.error('Eroare:', err);
         }
     }
+ 
+  async function handleToggle(id, currentDone) {
+  try {
+    console.log(id);
+    console.log(currentDone);
+    const response = await fetch(
+      'http://localhost:3000/api/projects/' + id,
+      {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          done: !currentDone
+        }),
+      }
+    );
+
+    const updatedProject = await response.json();
+    console.log(updatedProject);
+    setProjects(
+      projects.map(p => prevProjects =>
+        p._id === id ? updatedProject : p
+      )
+    );
+
+  } catch (err) {
+    console.error(err);
+  }
+}
 
     async function handleDelete(id) {
         try {
@@ -117,14 +147,16 @@ function ProjectList() {
                                 description={project.tech}
                             />
 
-                            <button
-                                onClick={() =>
-                                    handleDelete(project._id)
-                                }
+                            <button onClick={() => handleDelete(project._id)}
                                 style={{ marginTop: "5px" }}
                             >
                                 Șterge
                             </button>
+                            <button onClick={() => handleToggle(project._id, project.done)}
+                          >
+                              {project.done ? 'Marchează în lucru' : 'Marchează finalizat'}
+                               
+                                </button>
                         </div>
                     );
                 })}
@@ -142,7 +174,6 @@ function ProjectList() {
                 </p>
             </div>
 
-            {/* ➕ ADD PROJECT */}
             <div style={{ marginTop: "20px" }}>
                 <h4>Adauga proiect</h4>
 
@@ -159,10 +190,11 @@ function ProjectList() {
                     value={tech}
                     onChange={(e) => setTech(e.target.value)}
                 />
-
+                
                 <button onClick={handleSubmit}>
                     Adauga
                 </button>
+                 
             </div>
         </div>
     );
