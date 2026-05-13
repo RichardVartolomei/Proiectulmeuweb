@@ -52,7 +52,7 @@ app.get('/api/projects/:id', async function(req,res){
     }
     res.json(project);
    }catch(err){
-     res.status(500).json({error:'Eroare' + error.message});
+     res.status(500).json({error:'Eroare' + err.message});
    }
 });
 
@@ -64,11 +64,11 @@ app.delete('/api/projects/:id',async function(req,res){
     }
     res.json({message:'Deleted!!!'});
    }catch(err){
-    res.status(500).json({error:'Eroare' + error.message});
+    res.status(500).json({error:'Eroare' + err.message});
    }
 });
 
-app.put('/api/projects/:id', async function(error, req, res, next) {
+app.put('/api/projects/:id', async function(req,res) {
 	try {
 		const updated = await Project.findByIdAndUpdate(
             req.params.id,
